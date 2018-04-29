@@ -1,0 +1,24 @@
+{
+    "Conditions": [
+        {
+            "ConditionId": "1",
+            "ConditionName": "Condition1",
+            "ConditionPars": [
+                {
+                    "Parameter1": 1,
+                    "Parameter2": "xyz"
+                }
+            ]
+        },
+        {
+            "ConditionId": "2",
+            "ConditionName": "Condition2",
+            "ConditionPars": [
+                {
+                    "Parameter1": 2,
+                    "Parameter2": "qwe"
+                }
+            ]
+        }
+    ]
+}
