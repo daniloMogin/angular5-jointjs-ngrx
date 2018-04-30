@@ -1,16 +1,10 @@
-import { DesignerCommands } from './designer-commands/designer-commands.component';
-// import { PizzaFormComponent } from './pizza-form/pizza-form.component';
-// import { PizzaDisplayComponent } from './pizza-display/pizza-display.component';
-// import { PizzaToppingsComponent } from './pizza-toppings/pizza-toppings.component';
+import { DesignerCommandsComponent } from './designer-commands/designer-commands.component';
+import { DesignerPaperComponent } from './designer-paper/designer-paper.component';
 
 export const components: any[] = [
-    DesignerCommands
-    // PizzaFormComponent,
-    // PizzaDisplayComponent,
-    // PizzaToppingsComponent
+    DesignerCommandsComponent,
+    DesignerPaperComponent
 ];
 
 export * from './designer-commands/designer-commands.component';
-// export * from './pizza-form/pizza-form.component';
-// export * from './pizza-display/pizza-display.component';
-// export * from './pizza-toppings/pizza-toppings.component';
+export * from './designer-paper/designer-paper.component';

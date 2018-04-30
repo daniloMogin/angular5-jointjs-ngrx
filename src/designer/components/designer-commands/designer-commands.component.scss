@@ -1,0 +1,33 @@
+@import '../../../styles-variables';
+.controls-container {
+    background-color: $p_dark;
+    bottom: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 17%;
+    // position: absolute;
+    // right: 0;
+    width: 290px;
+    .controls_row,
+    .crud_row,
+    .valid_row {
+        flex-grow: 1;
+        height: 33.33%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        a {
+            margin: 0 5px 0 0;
+            &:last-of-type {
+                margin: 0;
+            }
+        }
+    }
+    .controls_row,
+    .valid_row {
+        mat-icon {
+            color: $primary;
+        }
+    }
+}

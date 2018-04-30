@@ -48,9 +48,9 @@ import { AppComponent } from './containers/app/app.component';
 
 // routes
 export const ROUTES: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'designer' },
+    { path: '', pathMatch: 'full', redirectTo: 'workflow' },
     {
-        path: 'designer',
+        path: 'workflow',
         loadChildren: '../designer/designer.module#DesignerModule'
     }
 ];

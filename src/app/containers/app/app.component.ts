@@ -17,8 +17,8 @@ export class AppComponent {
     year = new Date().getFullYear();
     logo = require('../../../assets/images/logo.png');
     navigation = [
-        { link: 'viewer', label: 'Workflow viewer', ngClass: '' },
-        { link: 'designer', label: 'Workflow designer', ngClass: '' }
+        { link: 'workflow/viewer', label: 'Workflow viewer', ngClass: '' },
+        { link: 'workflow/designer', label: 'Workflow designer', ngClass: '' }
     ];
     navigationSideMenu = [
         ...this.navigation
