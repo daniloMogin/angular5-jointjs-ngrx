@@ -9,14 +9,13 @@ import * as fromStore from './../../store';
     selector: 'viewer',
     styleUrls: ['viewer.component.scss'],
     template: `
-    <div
-      class="viewer">
-      <designer-paper>
-      </designer-paper>
-    </div>
-  `
+        <div class="viewer">
+            <viewer-settings></viewer-settings>
+        </div>
+    `
 })
 export class ViewerComponent implements OnInit {
+    selectedValue: string;
 
     ngOnInit() {
         console.log(`Viewer Component`);

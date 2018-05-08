@@ -25,7 +25,7 @@ export class DesignerCommandsComponent implements OnInit {
 
     ngOnInit() {
         console.log(`ngOnInit`);
-        this.name = prompt('Unesi naziv diagrama');
+        // this.name = prompt('Unesi naziv diagrama');
     }
 
     saveToJSON() {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
     MatButtonModule,
     MatToolbarModule,
@@ -64,6 +65,8 @@ export const ROUTES: Routes = [
         EffectsModule.forRoot(effects),
         StoreRouterConnectingModule,
         environment.development ? StoreDevtoolsModule.instrument() : [],
+
+        FlexLayoutModule,
 
         MatButtonModule,
         MatToolbarModule,

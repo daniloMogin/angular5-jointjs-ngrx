@@ -11,8 +11,8 @@ import * as fromStore from './../../store';
     template: `
     <div
       class="designer">
-      <designer-commands>
-      </designer-commands>
+      <designer-paper>
+      </designer-paper>
     </div>
   `
 })

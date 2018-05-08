@@ -3,18 +3,25 @@
     height: 100%;
 }
 
-mat-sidenav-container {
-    height: 100vh;
-    @media (max-width: map-get($grid-breakpoints, lg)) {
-        .nav-button {
-            min-width: 0;
-            padding: 0 10px;
+.mat-toolbar {
+    background-color: $p_dark;
+    color: $white;
+    .branding {
+        padding-right: 30px;
+        display: flex;
+        flex-direction: column;
+        .bran_img {
+            width: 32px;
+            margin: 11px 0 0 68px;
         }
-        .sign-in-button {
-            min-width: 0;
-            padding: 0 10px;
-            margin: 0 5px 0 0;
+        .bran_text {
+            font-size: 15px;
+            opacity: $font_pd_w_large;
         }
+    }
+    .nav_items {
+        margin-left: auto;
+        opacity: $font_pd_w_large;
     }
 }
 
@@ -29,69 +36,4 @@ mat-sidenav-container {
     padding: 0 15px;
     text-align: center;
     z-index: 1;
-    .row {
-        padding: 10px 0;
-        .links {
-            a {
-                transition: padding 0.5s;
-                display: inline-block;
-                padding: 20px 5px;
-                &:hover {
-                    text-decoration: none;
-                }
-                span {
-                    display: inline-block;
-                    width: 70px;
-                    padding: 0 0 0 5px;
-                    overflow: hidden;
-                    text-align: left;
-                    white-space: nowrap;
-                    transition: width 0.5s;
-                }
-            }
-            @media (max-width: map-get($grid-breakpoints, md)) {
-                a {
-                    padding: 20px;
-                    span {
-                        width: 0;
-                        padding: 0;
-                    }
-                }
-            }
-            @media (max-width: map-get($grid-breakpoints, sm)) {
-                a {
-                    padding: 20px 3px;
-                }
-            }
-        }
-        @media (min-width: map-get($grid-breakpoints, sm)) {
-            .signature {
-                position: relative;
-                a {
-                    position: absolute;
-                    right: 15px;
-                }
-            }
-        }
-    }
-}
-
-mat-sidenav {
-    width: 250px;
-    .branding {
-        height: 64px;
-        padding: 8px 10px;
-        font-size: 20px;
-        font-weight: 500;
-        img {
-            margin: 0 10px 0 0;
-        }
-        span {
-            position: relative;
-            top: 3px;
-        }
-    }
-    .mat-nav-list {
-        padding-top: 0;
-    }
 }

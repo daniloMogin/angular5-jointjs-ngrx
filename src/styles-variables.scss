@@ -10,8 +10,6 @@ $grid-breakpoints: (
   xl: 1200px
 );
 
-$primary: #000;
-
 // Colors
 $black: #000 !default;
 $white: #fff !default;
@@ -20,6 +18,26 @@ $primary: #757575 !default;
 $p_light: #a4a4a4 !default;
 $p_dark: #494949 !default;
 
-$secondary: #ffd600 !default;
+$secondary: #ffd700 !default;
 $s_light: #ffff52 !default;
-$s_dark: #c7a500 !default;
+$s_dark: #c7a600 !default;
+
+$font_p_w_large: .66;
+$font_p_b_large: .63;
+$font_p_w_normal: .98;
+$font_p_b_normal: .98;
+
+$font_pl_b_large: .48;
+$font_pl_b_normal: .65;
+
+$font_pd_w_large: .75;
+$font_pd_w_normal: .61;
+
+$font_s_b_large: .44;
+$font_s_b_normal: .56;
+
+$font_sl_b_large: .42;
+$font_sl_b_normal: .54;
+
+$font_sd_b_large: .48;
+$font_sd_b_normal: .63;

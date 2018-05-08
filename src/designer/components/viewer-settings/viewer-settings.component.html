@@ -1,0 +1,40 @@
+<mat-grid-list cols="3">
+    <mat-grid-tile>
+        <div class="settings-container">
+            <mat-form-field>
+                <input matInput placeholder="Name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select [formControl]="workflowCtrl" placeholder="Workflow Type" [(ngModel)]="selectedValue" name="workflowType" #singleSelect>
+                    <ngx-mat-select-search [formControl]="workflowFilterCtrl"></ngx-mat-select-search>
+                    <mat-option *ngFor="let wft of filteredWorkflow | async" [value]="wft">{{wft.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="settings-container">
+            <mat-form-field>
+                <input matInput placeholder="Minimum Number of Runners" type="number">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Maximum Number of Runners" type="number">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Time to leave" type="number">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Creation mechanism">
+            </mat-form-field>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <tree-root *ngIf="nodes" (initialized)="onTreeLoad($event)" [nodes]="nodes" [options]="options"></tree-root>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+        <a class="test" mat-raised-button matTooltip="Add workflow to execution set" matTooltipPosition="left" (click)="addToExeSet()">
+            Add to execution set
+        </a>
+    </mat-grid-tile>
+</mat-grid-list>

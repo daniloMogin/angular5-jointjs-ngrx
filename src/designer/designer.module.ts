@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
     MatButtonModule,
@@ -25,6 +25,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { reducers, effects } from './store';
+
+import { TreeModule } from 'angular-tree-component';
+import { NgxMatSelectSearchModule } from './../designer/components/mat-select-search';
 
 // components
 import * as fromComponents from './components';
@@ -55,6 +58,7 @@ export const ROUTES: Routes = [
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        FormsModule,
         HttpClientModule,
         RouterModule.forChild(ROUTES),
         StoreModule.forFeature('designer', reducers),
@@ -74,7 +78,10 @@ export const ROUTES: Routes = [
         MatMenuModule,
         MatIconModule,
         MatTooltipModule,
-        MatGridListModule
+        MatGridListModule,
+
+        NgxMatSelectSearchModule,
+        TreeModule
     ],
     providers: [],
     declarations: [...fromContainers.containers, ...fromComponents.components],
