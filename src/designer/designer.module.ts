@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
+    MatAutocompleteModule,
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
@@ -18,7 +19,8 @@ import {
     MatListModule,
     MatIconModule,
     MatTooltipModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
 } from '@angular/material';
 
 import { StoreModule } from '@ngrx/store';
@@ -37,6 +39,11 @@ import * as fromContainers from './containers';
 
 // // services
 // import * as fromServices from './services';
+
+import {
+    DesignerSettingsComponent,
+    DialogContent
+} from './components/designer-settings/designer-settings.component';
 
 // routes
 export const ROUTES: Routes = [
@@ -64,6 +71,7 @@ export const ROUTES: Routes = [
         StoreModule.forFeature('designer', reducers),
         EffectsModule.forFeature(effects),
 
+        MatAutocompleteModule,
         MatButtonModule,
         MatToolbarModule,
         MatSelectModule,
@@ -79,12 +87,18 @@ export const ROUTES: Routes = [
         MatIconModule,
         MatTooltipModule,
         MatGridListModule,
+        MatDialogModule,
 
         NgxMatSelectSearchModule,
         TreeModule
     ],
+    entryComponents: [DialogContent],
     providers: [],
-    declarations: [...fromContainers.containers, ...fromComponents.components],
+    declarations: [
+        ...fromContainers.containers,
+        ...fromComponents.components,
+        DialogContent
+    ],
     exports: [...fromContainers.containers, ...fromComponents.components]
 })
 export class DesignerModule {}

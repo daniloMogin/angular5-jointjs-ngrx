@@ -5,12 +5,22 @@
                 <input matInput placeholder="Name">
             </mat-form-field>
 
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <mat-select [formControl]="workflowCtrl" placeholder="Workflow Type" [(ngModel)]="selectedValue" name="workflowType" #singleSelect>
                     <ngx-mat-select-search [formControl]="workflowFilterCtrl"></ngx-mat-select-search>
                     <mat-option *ngFor="let wft of filteredWorkflow | async" [value]="wft">{{wft.Name}}</mat-option>
                 </mat-select>
+            </mat-form-field> -->
+
+            <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Workflow Type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option }}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
+
         </div>
     </mat-grid-tile>
     <mat-grid-tile>

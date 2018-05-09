@@ -16,6 +16,9 @@ import {
 import { FormControl } from '@angular/forms';
 import { MatSelect } from '@angular/material';
 
+import { Observable } from 'rxjs/Observable';
+import { map, startWith } from 'rxjs/operators';
+
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Subject } from 'rxjs/Subject';
 import { take } from 'rxjs/operators/take';
@@ -53,6 +56,9 @@ export class ViewerSettingsComponent implements OnInit, AfterViewInit {
             ]
         }
     ];
+    myControl: FormControl = new FormControl();
+    filteredOptions: Observable<string[]>;
+    selectedValue;
 
     @Input() workFlowName: string = '';
     @Input() workFlowType: string = '';
@@ -61,69 +67,31 @@ export class ViewerSettingsComponent implements OnInit, AfterViewInit {
     @Input() timeToLeave: number = 0;
     @Input() creationMechanism: string = '';
 
-    /** control for the selected bank */
-    public workflowCtrl: FormControl = new FormControl();
-
-    /** control for the MatSelect filter keyword */
-    public workflowFilterCtrl: FormControl = new FormControl();
-
-    private workflowType: WorkflowType[] = [
-        { value: 'WF-0', viewValue: 'WF1' },
-        { value: 'WF-1', viewValue: 'WF2' },
-        { value: 'WF-2', viewValue: 'WF3' },
-        { value: 'WF-3', viewValue: 'TEST' }
-    ];
-    /** list of workflows filtered by search keyword */
-    public filteredWorkflow: ReplaySubject<WorkflowType[]> = new ReplaySubject<
-        WorkflowType[]
-    >(1);
-    @ViewChild('singleSelect') singleSelect: MatSelect;
-
-    /** Subject that emits when the component has been destroyed. */
-    private _onDestroy = new Subject<void>();
+    private workflowType = ['WF1', 'WF2', 'WF3', 'TEST'];
 
     ngOnInit() {
-        this.workflowCtrl.setValue(this.getWorkflow());
+        this.filteredOptions = this.myControl.valueChanges.pipe(
+            startWith(''),
+            map(val => this.filter(val))
+        );
+    }
 
-        this.filteredWorkflow.next(this.getWorkflow());
+    filter(val: string): string[] {
+        return this.workflowType.filter(option =>
+            option.toLowerCase().includes(val.toLowerCase())
+        );
+    }
 
-        // listen for search field value changes
-        this.workflowFilterCtrl.valueChanges
-            .pipe(takeUntil(this._onDestroy))
-            .subscribe(() => {
-                this.filterWorkflows();
-            });
-
-        console.log(this.getWorkflow());
+    onSelectionChanged(event) {
+        console.log(`event`);
+        console.log(event);
+        console.log(event.option.value);
     }
 
     ngAfterViewInit() {}
 
     private onTreeLoad(event) {
         event.treeModel.expandAll();
-    }
-
-    private filterWorkflows() {
-        console.log(`filterWorkflows`);
-
-        if (!this.workflowType) {
-            return;
-        }
-        // get the search keyword
-        let search = this.workflowFilterCtrl.value;
-        if (!search) {
-            this.filteredWorkflow.next(this.workflowType.slice());
-            return;
-        } else {
-            search = search.toLowerCase();
-        }
-        // filter the banks
-        this.filteredWorkflow.next(
-            this.workflowType.filter(
-                workflowType =>
-                    workflowType.value.toLowerCase().indexOf(search) > -1
-            )
-        );
     }
 
     getWorkflow = () => {
@@ -134,5 +102,5 @@ export class ViewerSettingsComponent implements OnInit, AfterViewInit {
         const my_JSON_object = JSON.parse(request.responseText);
 
         return my_JSON_object;
-    }
+    };
 }

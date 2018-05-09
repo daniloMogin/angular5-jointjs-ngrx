@@ -1,0 +1,14 @@
+mat-dialog-content {
+    mat-form-field {
+        display: block;
+    }
+    .var-card,
+    .par-card {
+        float: left;
+        width: 49%;
+        z-index: 9;
+    }
+    .var-card {
+        margin-right: 2%;
+    }
+}

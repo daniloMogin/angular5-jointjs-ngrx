@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Workflow Settings</h2>
+{{data.animal}}
+<mat-dialog-content>
+    <mat-form-field>
+        <input matInput placeholder="Name">
+    </mat-form-field>
+    <mat-card class="var-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Workflow</mat-card-title>
+            <mat-card-subtitle>Variables</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, cum itaque ipsum recusandae quas ratione nostrum quod
+                placeat porro minima! Quasi voluptas saepe perferendis temporibus dolorem quas vero dolorum. Distinctio?
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button matTooltip="Add variable" matTooltipPosition="left">Add</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="par-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Workflow</mat-card-title>
+            <mat-card-subtitle>Parameters</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, cum itaque ipsum recusandae quas ratione nostrum quod
+                placeat porro minima! Quasi voluptas saepe perferendis temporibus dolorem quas vero dolorum. Distinctio?
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button matTooltip="Add parameter" matTooltipPosition="left" (click)="addParam();">Add</button>
+        </mat-card-actions>
+    </mat-card>
+    <mat-form-field>
+        <mat-select placeholder="Next state on fail">
+            <mat-option *ngFor="let fail of failScenarion" [value]="fail.value">
+                {{ fail.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="true">Ok</button>
+    <!-- cdkFocusInitial - da fokusira dugme cim se otvori-->
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

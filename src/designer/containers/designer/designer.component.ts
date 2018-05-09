@@ -17,7 +17,6 @@ import * as fromStore from './../../store';
   `
 })
 export class DesignerComponent implements OnInit {
-
     ngOnInit() {
         console.log(`Designer Component`);
     }
