@@ -20,6 +20,8 @@ export class DesignerPaperComponent implements OnInit {
     name: string = '';
     test; // name of the diagram prompt
 
+    // initialName: string = '';
+
     graph: joint.dia.Graph;
     commandManager: joint.dia.CommandManager;
     paper: joint.dia.Paper;
@@ -34,6 +36,9 @@ export class DesignerPaperComponent implements OnInit {
 
     ngOnInit() {
         console.log(`OnInit designer paper`);
+
+        this.initialName = 'Designer paper init je prosao';
+
         // this.name = prompt('Unesi naziv diagrama');
         this.initializePaper();
         this.initializeStencil();

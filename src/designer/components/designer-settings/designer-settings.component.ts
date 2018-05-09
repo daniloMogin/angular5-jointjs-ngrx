@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-
 @Component({
     selector: 'designer-settings',
     templateUrl: './designer-settings.component.html',
@@ -9,8 +9,10 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DesignerSettingsComponent implements OnInit {
     title = 'Geutebrueck Rappid';
+
     name: string = '';
-    test; // name of the diagram prompt
+    fail: string = '';
+    test: any = {};
 
     constructor(public dialog: MatDialog) {
         this.openDialog();
@@ -21,14 +23,16 @@ export class DesignerSettingsComponent implements OnInit {
     }
     openDialog() {
         const dialogRef = this.dialog.open(DialogContent, {
-            height: '350px',
+            height: '400px',
             data: {
-                animal: 'panda'
+                name: this.name,
+                fail: this.fail,
+                test: this.test
             }
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log(`Dialog result: ${result}`);
+            console.log(`Dialog result: `, result);
         });
     }
 }
@@ -40,15 +44,18 @@ export class DesignerSettingsComponent implements OnInit {
 })
 export class DialogContent {
     failScenarion;
+    variables = [];
+    parameters = [];
+
     constructor(
         public dialogRef: MatDialogRef<DialogContent>,
         @Inject(MAT_DIALOG_DATA) public data: any
     ) {
         this.failScenarion = [
-            { value: 'last', viewValue: 'Source' },
-            { value: 'next', viewValue: 'Target' },
+            { value: 'source', viewValue: 'Source' },
+            { value: 'target', viewValue: 'Target' },
             { value: 'init', viewValue: 'Init' },
-            { value: 'init', viewValue: 'Custom' }
+            { value: 'custom', viewValue: 'Custom' }
         ];
     }
 
@@ -56,7 +63,22 @@ export class DialogContent {
         this.dialogRef.close();
     }
 
+    addVar() {
+        console.log(`addVar!!!`);
+        this.variables.push('');
+    }
+
     addParam() {
         console.log(`addParam!!!`);
+        this.parameters.push('');
+    }
+
+    designerSettings(name, fail, test) {
+        const res = {
+            name,
+            fail,
+            test
+        };
+        return res;
     }
 }

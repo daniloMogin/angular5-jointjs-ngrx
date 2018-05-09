@@ -1,9 +1,11 @@
 <h2 mat-dialog-title>Workflow Settings</h2>
-{{data.animal}}
+{{data.name}}
 <mat-dialog-content>
     <mat-form-field>
-        <input matInput placeholder="Name">
+        <input matInput placeholder="Name" [(ngModel)]="name">
     </mat-form-field>
+
+
     <mat-card class="var-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
@@ -11,15 +13,20 @@
             <mat-card-subtitle>Variables</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, cum itaque ipsum recusandae quas ratione nostrum quod
-                placeat porro minima! Quasi voluptas saepe perferendis temporibus dolorem quas vero dolorum. Distinctio?
-            </p>
+
+
+            <mat-form-field *ngFor="let var of variables">
+                <input matInput placeholder="Name of variable" [(ngModel)]="test">
+            </mat-form-field>
+
+
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button matTooltip="Add variable" matTooltipPosition="left">Add</button>
+            <button mat-raised-button matTooltip="Add variable" matTooltipPosition="left" (click)="addVar();">Add</button>
         </mat-card-actions>
     </mat-card>
+
+
     <mat-card class="par-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
@@ -27,25 +34,24 @@
             <mat-card-subtitle>Parameters</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, cum itaque ipsum recusandae quas ratione nostrum quod
-                placeat porro minima! Quasi voluptas saepe perferendis temporibus dolorem quas vero dolorum. Distinctio?
-            </p>
+            <mat-form-field *ngFor="let param of parameters">
+                <input matInput placeholder="Name of parameter">
+            </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button matTooltip="Add parameter" matTooltipPosition="left" (click)="addParam();">Add</button>
         </mat-card-actions>
     </mat-card>
     <mat-form-field>
-        <mat-select placeholder="Next state on fail">
-            <mat-option *ngFor="let fail of failScenarion" [value]="fail.value">
-                {{ fail.viewValue }}
+        <mat-select placeholder="Next state on fail" [(ngModel)]="fail">
+            <mat-option *ngFor="let fs of failScenarion" [value]="fs.value">
+                {{ fs.viewValue }}
             </mat-option>
         </mat-select>
     </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-raised-button [mat-dialog-close]="true">Ok</button>
+    <button mat-raised-button [mat-dialog-close]="designerSettings(name, fail, test)">Ok</button>
     <!-- cdkFocusInitial - da fokusira dugme cim se otvori-->
     <button mat-raised-button mat-dialog-close>Cancel</button>
 </mat-dialog-actions>
