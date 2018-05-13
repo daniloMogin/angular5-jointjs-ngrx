@@ -1,15 +1,39 @@
+@import '../../../styles-variables';
 .mat-grid-tile {
     // background: lightblue;
+    overflow: auto;
+    mat-form-field {
+        display: block;
+    }
     .settings-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding-top: 25px;
         width: 90%;
+        .workflowType-wrap {
+            .wft-box {
+                border: 1px solid $black;
+                float: left;
+                margin: 0 1% 1% 0;
+                padding: 5px;
+                width: 49%;
+                &:last-of-type {
+                    margin: 0;
+                }
+            }
+        }
     }
-    tree-root {
-        padding-top: 25px;
+    .tree-wrap {
+        padding-top: 15px;
+        tree-root {
+            padding-top: 25px;
+        }
     }
+}
+
+.button-wrap {
+    margin: 25px 0;
     .test {
         margin: 0 auto;
     }

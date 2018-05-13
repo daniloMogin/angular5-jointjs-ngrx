@@ -1,5 +1,19 @@
-import { Component, OnInit, Inject, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {
+    Component,
+    OnInit,
+    Inject,
+    Input,
+    OnChanges,
+    Output,
+    EventEmitter
+} from '@angular/core';
+import {
+    FormControl,
+    FormGroup,
+    FormBuilder,
+    FormArray,
+    Validators
+} from '@angular/forms';
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 @Component({
@@ -9,10 +23,12 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class DesignerSettingsComponent implements OnInit {
     title = 'Geutebrueck Rappid';
-
     name: string = '';
-    fail: string = '';
-    test: any = {};
+    fail: any = '';
+    varArr: any = [];
+    parArr: any = [];
+
+    @Output() change = new EventEmitter();
 
     constructor(public dialog: MatDialog) {
         this.openDialog();
@@ -23,16 +39,24 @@ export class DesignerSettingsComponent implements OnInit {
     }
     openDialog() {
         const dialogRef = this.dialog.open(DialogContent, {
-            height: '400px',
+            height: '600px',
+            width: '700px',
             data: {
                 name: this.name,
                 fail: this.fail,
-                test: this.test
+                var: this.varArr,
+                par: this.parArr
             }
         });
 
         dialogRef.afterClosed().subscribe(result => {
             console.log(`Dialog result: `, result);
+            this.name = result.name;
+            this.fail = result.fail;
+            this.varArr = result.variablesArr;
+            this.parArr = result.parametersArr;
+
+            this.change.emit(result);
         });
     }
 }
@@ -44,19 +68,60 @@ export class DesignerSettingsComponent implements OnInit {
 })
 export class DialogContent {
     failScenarion;
-    variables = [];
-    parameters = [];
+    name: string = '';
+    fail: any = '';
+    variables: any = [];
+    parameters: any = [];
+    designerSettingsForm: FormGroup;
 
     constructor(
         public dialogRef: MatDialogRef<DialogContent>,
-        @Inject(MAT_DIALOG_DATA) public data: any
+        @Inject(MAT_DIALOG_DATA) public data: any,
+        private fb: FormBuilder
     ) {
         this.failScenarion = [
-            { value: 'source', viewValue: 'Source' },
-            { value: 'target', viewValue: 'Target' },
-            { value: 'init', viewValue: 'Init' },
-            { value: 'custom', viewValue: 'Custom' }
+            { value: 'Source', viewValue: 'Source' },
+            { value: 'Target', viewValue: 'Target' },
+            { value: 'Init', viewValue: 'Init' },
+            { value: 'Custom', viewValue: 'Custom' }
         ];
+
+        this.createForm();
+        this.initVariables(data.var);
+        this.initParameters(data.par);
+    }
+
+    createForm() {
+        this.designerSettingsForm = this.fb.group({
+            name: [this.data.name, Validators.required], // <--- the FormControl called "name"
+            variablesArr: this.fb.array([]),
+            parametersArr: this.fb.array([]),
+            fail: [this.data.fail, Validators.required]
+        });
+    }
+
+    initVariables(input: any[]) {
+        for (const i of input) {
+            this.variables.push('');
+        }
+        const addressFGs = input.map(vari => this.fb.group(vari));
+        const addressFormArray = this.fb.array(addressFGs);
+        this.designerSettingsForm.setControl('variablesArr', addressFormArray);
+    }
+
+    initParameters(input: any[]) {
+        for (const i of input) {
+            this.parameters.push('');
+        }
+        const addressFGs = input.map(vari => this.fb.group(vari));
+        const addressFormArray = this.fb.array(addressFGs);
+        this.designerSettingsForm.setControl('parametersArr', addressFormArray);
+    }
+
+    createItem(): FormGroup {
+        return this.fb.group({
+            item: ''
+        });
     }
 
     onNoClick(): void {
@@ -64,21 +129,34 @@ export class DialogContent {
     }
 
     addVar() {
-        console.log(`addVar!!!`);
-        this.variables.push('');
+        this.variables.push(
+            (<FormArray>this.designerSettingsForm.get('variablesArr')).push(
+                this.createItem()
+            )
+        );
+    }
+
+    removeVar() {
+        const control = <FormArray>this.designerSettingsForm.controls[
+            'variablesArr'
+        ];
+        control.controls.pop();
+        this.variables.pop();
     }
 
     addParam() {
-        console.log(`addParam!!!`);
-        this.parameters.push('');
+        this.parameters.push(
+            (<FormArray>this.designerSettingsForm.get('parametersArr')).push(
+                this.createItem()
+            )
+        );
     }
 
-    designerSettings(name, fail, test) {
-        const res = {
-            name,
-            fail,
-            test
-        };
-        return res;
+    removeParam() {
+        const control = <FormArray>this.designerSettingsForm.controls[
+            'parametersArr'
+        ];
+        control.controls.pop();
+        this.parameters.pop();
     }
 }

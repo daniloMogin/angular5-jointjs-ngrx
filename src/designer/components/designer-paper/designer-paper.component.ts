@@ -1,14 +1,19 @@
+//#region Imports
 import { Component, OnInit } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import * as config from './../../config';
 import * as _ from 'lodash';
-// import * as __ from 'lodash-uuid';
 import * as Backbone from 'backbone';
 
 import * as jsonM from './../../../assets/JSON/allJSONstrings';
 
 import '../../models/joint.shapes.app';
 import * as joint from '../../../assets/build/rappid.min';
+import { Observable } from 'rxjs/Observable';
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
+//#endregion
 
 @Component({
     selector: 'designer-paper',
@@ -18,9 +23,8 @@ import * as joint from '../../../assets/build/rappid.min';
 export class DesignerPaperComponent implements OnInit {
     title = 'Geutebrueck Rappid';
     name: string = '';
-    test; // name of the diagram prompt
 
-    // initialName: string = '';
+    myCount;
 
     graph: joint.dia.Graph;
     commandManager: joint.dia.CommandManager;
@@ -34,10 +38,15 @@ export class DesignerPaperComponent implements OnInit {
     toolbar: joint.ui.Toolbar;
     navigator: joint.ui.Navigator;
 
+    apiRoot: string = '/api/1.0/configuration/';
+    apiRootActor: string = '/api/1.0/actors/';
+
+    constructor(private http: HttpClient) {}
+
     ngOnInit() {
         console.log(`OnInit designer paper`);
 
-        this.initialName = 'Designer paper init je prosao';
+        // this.initialName = 'Designer paper init je prosao';
 
         // this.name = prompt('Unesi naziv diagrama');
         this.initializePaper();
@@ -236,25 +245,30 @@ export class DesignerPaperComponent implements OnInit {
                 input.attributes.attrs,
                 'text'
             ).text;
-            console.log(`==============================`);
-            console.log(config.inspector[cell.get('type')]);
-            console.log(config.inspector[cell.get('type')].inputs.params.item);
-            config.inspector[
-                cell.get('type')
-            ].inputs.params.item.flatAttributes =
-                'AAAAAAAAAA';
-            console.log(
-                config.inspector[cell.get('type')].inputs.params.item
-                    .flatAttributes
-            );
-            console.log(`==============================`);
+
+            console.log(`actions`);
+            console.log(actions);
+
+            // console.log(`==============================`);
+            // console.log(config.inspector[cell.get('type')]);
+            // console.log(config.inspector[cell.get('type')].inputs.params.item);
+            // config.inspector[
+            //     cell.get('type')
+            // ].inputs.params.item.flatAttributes =
+            //     'AAAAAAAAAA';
+            // console.log(
+            //     config.inspector[cell.get('type')].inputs.params.item
+            //         .flatAttributes
+            // );
+            // console.log(`==============================`);
+
             for (const i of actions.Operations) {
                 // TODO NAPRAVITI DA SE LABELE PARAMETARA DOBIJAJU, A NE DA BUDU DEFAULT
                 if (i.OperationId === selectedOperationId) {
-                    console.log(`i`);
-                    console.log(i);
-                    console.log(`selectedOperationId`);
-                    console.log(selectedOperationId);
+                    // console.log(`i`);
+                    // console.log(i);
+                    // console.log(`selectedOperationId`);
+                    // console.log(selectedOperationId);
                     for (const j of i.Arguments) {
                         // console.log(j.Parameter);
                         test.push(j.Parameter);
@@ -268,17 +282,18 @@ export class DesignerPaperComponent implements OnInit {
                     input.set('params', test);
                 }
             }
-            console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
-            console.log(_.extend({ cell }, config.inspector[cell.get('type')]));
-            console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
-            config.inspector[
-                cell.get('type')
-            ].inputs.params.item.flatAttributes =
-                'AAAAAAAAAA';
-            console.log(
-                config.inspector[cell.get('type')].inputs.params.item
-                    .flatAttributes
-            );
+
+            // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+            // console.log(_.extend({ cell }, config.inspector[cell.get('type')]));
+            // console.log(`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`);
+            // config.inspector[
+            //     cell.get('type')
+            // ].inputs.params.item.flatAttributes =
+            //     'AAAAAAAAAA';
+            // console.log(
+            //     config.inspector[cell.get('type')].inputs.params.item
+            //         .flatAttributes
+            // );
         });
 
         return joint.ui.Inspector.create(
@@ -447,6 +462,173 @@ export class DesignerPaperComponent implements OnInit {
         });
         this.paperScroller.centerContent();
     }
+
+    saveToJSON() {
+        console.log(`saveToJSON`);
+        const actions = getActions();
+        const workflow = getWorkflow();
+        const graphJson = this.graph;
+        // const usedOperationsInWorkflow: any = getUsedOperations(
+        //     graphJson,
+        //     actions
+        // );
+        // const usedWorkflowInWorkflow: any = getUsedWorkflow(
+        //     graphJson,
+        //     workflow
+        // );
+
+        console.log(`this.myCount`);
+        console.log(this.myCount);
+        console.log(`graphJson`);
+        console.log(graphJson);
+
+        const parameters: string[] = [];
+        const variables: string[] = [];
+        for (const i of this.myCount.parametersArr) {
+            parameters.push(i.item);
+        }
+        for (const i of this.myCount.variablesArr) {
+            variables.push(i.item);
+        }
+        // console.log(`parameters`);
+        // console.log(parameters);
+        // console.log(`variables`);
+        // console.log(variables);
+
+        const graphJson_str: any = JSON.stringify(graphJson);
+        const graphJson_obj: any = JSON.parse(graphJson_str);
+
+        graphJson_obj['Name'] = this.myCount.name;
+        // graphJson_obj['Operations'] = usedOperationsInWorkflow;
+        // graphJson_obj['Workflow'] = usedWorkflowInWorkflow;
+        graphJson_obj['Parameters'] = parameters;
+        graphJson_obj['Variables'] = variables;
+        graphJson_obj['States'] = [];
+        // console.log(`graphJson_obj`);
+        // console.log(graphJson_obj);
+        // console.log(JSON.stringify(graphJson_obj));
+
+        const result: any = [];
+
+        _.each(graphJson.getElements(), (element: joint.dia.Element): void => {
+            const opt = {
+                outbound: true
+            };
+            const currentElementTextPart = _.find(
+                element.attributes.attrs,
+                'text'
+            ).text;
+
+            if (
+                element.attributes.type === 'fsa.StartState' ||
+                element.attributes.type === 'erd.IdentifyingRelationship' ||
+                element.attributes.type === 'basic.Rect'
+            ) {
+                // if (
+                //     // currentElementTextPart === 'Init'
+                //     currentElementTextPart === '1'
+                //     // currentElementTextPart === 'WaitOnAlarm'
+                //     // currentElementTextPart === '3'
+                // ) {
+                const allStates = [];
+                const finalState = [];
+                const connectedElements_temp = getNeighborsRec(
+                    graphJson,
+                    element,
+                    opt,
+                    allStates,
+                    finalState
+                );
+                const states = findAllStates(
+                    graphJson,
+                    element,
+                    connectedElements_temp.finalState
+                );
+
+                let createdState: any;
+                let state: any = [];
+                for (const i of states) {
+                    createdState = createStateFunc(
+                        currentElementTextPart,
+                        i,
+                        'StepByStep',
+                        '',
+                        this.myCount
+                    );
+                    state = createdState;
+                }
+                // console.log(`state`);
+                // console.log(state);
+
+                result.push({
+                    Name: currentElementTextPart,
+                    Transitions: [...state]
+                });
+                // }
+            }
+        });
+        if (result.length > 0) {
+            graphJson_obj.States = result;
+
+            console.log(`graphJson_obj`);
+            console.log(graphJson_obj);
+            // console.log(JSON.stringify(graphJson_obj));
+
+            // const httpOptions = {
+            //     headers: new HttpHeaders({
+            //         'X-Correlation-ID': '0a9b5008-388c-4b06-982f-1954dfb718fc',
+            //         'Content-Type': 'application/json',
+            //         responseType: 'text'
+            //     })
+            // };
+            // return (
+            //     this.http
+            //         .post(this.apiRoot, jsonM.jsonString11, httpOptions)
+            //         // .subscribe(res => console.log(res));
+            //         .pipe(
+            //             map(data => {
+            //                 console.log(`data`);
+            //                 console.log(data);
+            //             }),
+            //             catchError(error => of(console.log(error)))
+            //         )
+            //         .subscribe(
+            //             res => console.log(res),
+            //             error => console.log(error)
+            //         )
+            // );
+        }
+    }
+
+    loadFromJSON() {
+        // console.log(`loadFromJSON`);
+        // TODO - logic for getting diagram from database
+        this.graph.fromJSON(jsonM.jsonString11);
+    }
+
+    testGetActions() {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'X-Correlation-ID': '0a9b5008-388c-4b06-982f-1954dfb718fc',
+                'Content-Type': 'application/json',
+                responseType: 'text'
+            })
+        };
+        return this.http
+            .get(this.apiRootActor, httpOptions)
+            .pipe(
+                map(data => {
+                    console.log(`data`);
+                    console.log(data);
+                }),
+                catchError(error => of(console.log(error)))
+            )
+            .subscribe(res => console.log(res), error => console.log(error));
+    }
+
+    countChange(event) {
+        this.myCount = event;
+    }
 }
 
 /** TREBA SKLONITI KADA SE NAPRAVE SERVISI */
@@ -459,6 +641,24 @@ const getActions = () => {
     const my_JSON_object = JSON.parse(request.responseText);
 
     return my_JSON_object;
+
+    // const httpOptions = {
+    //     headers: new HttpHeaders({
+    //         'X-Correlation-ID': '0a9b5008-388c-4b06-982f-1954dfb718fc',
+    //         'Content-Type': 'application/json',
+    //         responseType: 'text'
+    //     })
+    // };
+    // return http
+    //     .get(this.apiRootActor, httpOptions)
+    //     .pipe(
+    //         map(data => {
+    //             console.log(`data`);
+    //             console.log(data);
+    //         }),
+    //         catchError(error => of(console.log(error)))
+    //     )
+    // .subscribe(res => console.log(res), error => console.log(error));
 };
 
 const getWorkflow = () => {
@@ -527,4 +727,222 @@ const getUsedWorkflow = (jsonObj, workflow) => {
         }
     }
     return _.uniq(result);
+};
+
+const findAllStates = (
+    graphJson: joint.dia.Graph,
+    element: joint.dia.Element,
+    connectedElementsFinal
+) => {
+    const allLinks: joint.dia.Link[] = graphJson.getLinks();
+    const resultArr: any[] = [];
+    for (const i of connectedElementsFinal) {
+        const operationArr: any = [];
+        const messageArr: any = [];
+        const linksArr: any = [];
+        const result: any = [];
+        resultArr.push(
+            findLink(
+                graphJson,
+                allLinks,
+                element,
+                i,
+                operationArr,
+                messageArr,
+                linksArr,
+                result
+            )
+        );
+    }
+    for (const i of resultArr) {
+        i.result.firstElement = element;
+    }
+
+    return resultArr;
+};
+
+const findLink = (
+    graphJson: joint.dia.Graph,
+    allLinks: joint.dia.Link[],
+    firstElement: joint.dia.Element,
+    lastElement: joint.dia.Element,
+    operationArr,
+    messageArr,
+    linksArr,
+    result
+) => {
+    let tempFirstElement: any = [];
+
+    for (let i: number = 0; i < allLinks.length; i++) {
+        if (allLinks[i].attributes.source.id === firstElement.id) {
+            tempFirstElement = graphJson.getCell(
+                allLinks[i].attributes.target.id
+            );
+            linksArr.push(allLinks[i]);
+            const index = allLinks.indexOf(allLinks[i]);
+            allLinks.splice(index, 1);
+            if (tempFirstElement.attributes.type === 'erd.Entity') {
+                operationArr.push(tempFirstElement);
+                findLink(
+                    graphJson,
+                    allLinks,
+                    tempFirstElement,
+                    lastElement,
+                    operationArr,
+                    messageArr,
+                    linksArr,
+                    result
+                );
+            }
+            if (tempFirstElement.attributes.type === 'erd.ISA') {
+                messageArr.push(tempFirstElement);
+                findLink(
+                    graphJson,
+                    allLinks,
+                    tempFirstElement,
+                    lastElement,
+                    operationArr,
+                    messageArr,
+                    linksArr,
+                    result
+                );
+            }
+            break;
+        }
+    }
+    result = {
+        firstElement: '',
+        lastElement,
+        operation: operationArr,
+        message: messageArr,
+        links: linksArr
+    };
+    return { result };
+};
+
+const createStateFunc = (
+    currentElementTextPart,
+    stateSlice,
+    transitionScenario,
+    condition,
+    myCount
+) => {
+    const tempState: any = [];
+    const endElementTextPart: string[] = [];
+    let messageTextPart: string[] = [];
+    const operationTextPart: string[] = [];
+    const linksTextPart: string[] = [];
+    let message: string;
+
+    endElementTextPart.push(
+        _.find(stateSlice.result.lastElement.attributes.attrs, 'text').text
+    );
+    for (const j of stateSlice.result.message) {
+        messageTextPart.push(_.find(j.attributes.attrs, 'text').text);
+    }
+    for (const k of stateSlice.result.operation) {
+        operationTextPart.push(_.find(k.attributes.attrs, 'text').text);
+    }
+    for (const k of stateSlice.result.links) {
+        if (!_.isNil(k.attributes.labels)) {
+            for (const m of k.attributes.labels) {
+                linksTextPart.push(m.attrs.text.text);
+            }
+        }
+    }
+    message = messageTextPart[messageTextPart.length - 1] || '';
+    if (linksTextPart.length > 0) {
+        messageTextPart = linksTextPart;
+    }
+
+    tempState.push({
+        Name:
+            currentElementTextPart +
+            '_' +
+            endElementTextPart[endElementTextPart.length - 1] +
+            '_' +
+            messageTextPart[messageTextPart.length - 1],
+        NextStateOnSuccess: endElementTextPart[endElementTextPart.length - 1],
+        NextStateOnFailure: myCount.fail,
+        Condition: condition,
+        Trigger: {
+            Message: message,
+            Timeout: 0
+        },
+        Operations: [
+            {
+                Name: operationTextPart,
+                Arguments: {
+                    Parameter: '',
+                    Argument: '',
+                    Modifier: ''
+                }
+            }
+        ],
+        TransitionScenario: transitionScenario
+    });
+    return tempState;
+};
+
+const getNeighborsRec = (graph, element, opt, allStates, finalState) => {
+    const connectedElements_temp = graph.getNeighbors(element, opt);
+
+    for (const i of connectedElements_temp) {
+        if (
+            i.attributes.type === 'fsa.StartState' ||
+            i.attributes.type === 'erd.IdentifyingRelationship' ||
+            i.attributes.type === 'basic.Rect' ||
+            i.attributes.type === 'fsa.EndState'
+        ) {
+            finalState.push(i);
+        } else {
+            allStates.push(i);
+            getNeighborsRec(graph, i, opt, allStates, finalState);
+        }
+    }
+
+    return { allStates, finalState };
+};
+
+const colorElement = (node: any, name: string) => {
+    console.log(`colorElement`);
+    // console.log(node.attributes.attrs.text.text);
+    // console.log(node);
+    // console.log(name);
+
+    if (name === 'state') {
+        name = 'circle';
+        node.attr(`${name}/fill`, {
+            type: 'linearGradient',
+            stops: [{ offset: '0%', color: '#E67E22' }]
+        });
+    } else {
+        node.attr(`${name}/fill`, {
+            type: 'linearGradient',
+            stops: [{ offset: '0%', color: '#ffff52' }]
+        });
+    }
+
+    if (node.attributes.attrs.text.text === 'Alarm') {
+        node.attr(`${name}/fill`, {
+            type: 'linearGradient',
+            stops: [{ offset: '0%', color: '#ED3032' }]
+        });
+    }
+};
+
+const removeColorElement = (node: any, name: string) => {
+    console.log(`removeColorElement`);
+    if (name === 'state') {
+        name = 'circle';
+        node.attr(`${name}/fill`, {
+            type: 'linearGradient',
+            stops: [{ offset: '0%', color: '#61549C' }]
+        });
+    } else {
+        node.attr(`${name}/fill`, {
+            type: 'linearGradient',
+            stops: [{ offset: '0%', color: 'transparent' }]
+        });
+    }
 };

@@ -1,50 +1,80 @@
-<mat-grid-list cols="3">
+<mat-grid-list cols="3" [formGroup]="viewerSettingsForm">
     <mat-grid-tile>
         <div class="settings-container">
             <mat-form-field>
-                <input matInput placeholder="Name">
+                <input matInput placeholder="Name" formControlName="name" required>
             </mat-form-field>
 
-            <!-- <mat-form-field>
-                <mat-select [formControl]="workflowCtrl" placeholder="Workflow Type" [(ngModel)]="selectedValue" name="workflowType" #singleSelect>
-                    <ngx-mat-select-search [formControl]="workflowFilterCtrl"></ngx-mat-select-search>
-                    <mat-option *ngFor="let wft of filteredWorkflow | async" [value]="wft">{{wft.Name}}</mat-option>
-                </mat-select>
-            </mat-form-field> -->
-
             <mat-form-field class="example-full-width">
-                <input type="text" placeholder="Workflow Type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <input type="text" placeholder="Workflow Type" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto"
+                    required>
                 <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)">
                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
                         {{ option }}
+
                     </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
 
+            <div *ngIf="nestoDobro" [formGroup]="viewerWorkflowTypeForm">
+                <br>
+                <div class="workflowType-wrap" formArrayName="params">
+                    <ul class="wft-box" *ngFor="let nd of nestoDobro; let i=index" [formGroupName]="i">
+                        <li>{{nd.Name}} {{i + 1}}</li>
+
+                        <li>Parameter: {{nd.Arguments.Parameter}}</li>
+                        <mat-form-field>
+                            <input matInput placeholder="Argument" formControlName="argument" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Modifier" formControlName="modifier" required>
+                        </mat-form-field>
+                        <!-- <li>{{nd.Arguments.Argument}}</li>
+                    <li>{{nd.Arguments.Modifier}}</li> -->
+                    </ul>
+                </div>
+                <!-- <p>Form name: {{ viewerWorkflowTypeForm.value | json }}</p>
+                <p>Form status: {{ viewerWorkflowTypeForm.status | json }}</p> -->
+            </div>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
         <div class="settings-container">
             <mat-form-field>
-                <input matInput placeholder="Minimum Number of Runners" type="number">
+                <input matInput placeholder="Minimum Number of Runners" type="number" min="1" formControlName="minNumRunn" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Maximum Number of Runners" type="number">
+                <input matInput placeholder="Maximum Number of Runners" type="number" min="1" formControlName="maxNumRunn" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Time to leave" type="number">
+                <input matInput placeholder="Time to live" type="number" min="1" formControlName="ttl" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Creation mechanism">
+                <!-- <input matInput placeholder="Creation mechanism" formControlName="creationMech"> -->
+
+                <mat-select placeholder="Creation mechanism" formControlName="creationMech" required>
+                    <mat-option *ngFor="let crm of creationMech" [value]="crm">
+                        {{ crm }}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
     </mat-grid-tile>
     <mat-grid-tile>
-        <tree-root *ngIf="nodes" (initialized)="onTreeLoad($event)" [nodes]="nodes" [options]="options"></tree-root>
+        <div class="tree-wrap">
+            <tree-root #tree *ngIf="nodes" (initialized)="onTreeLoad($event)" [nodes]="nodes" [options]="options"></tree-root>
+        </div>
     </mat-grid-tile>
-    <mat-grid-tile colspan="3" rowspan="1">
+    <!-- <mat-grid-tile colspan="3" rowHeight="10:1">
         <a class="test" mat-raised-button matTooltip="Add workflow to execution set" matTooltipPosition="left" (click)="addToExeSet()">
             Add to execution set
         </a>
-    </mat-grid-tile>
+    </mat-grid-tile> -->
+    <!-- <p>Form name: {{ viewerSettingsForm.value | json }}</p>
+    <p>Form status: {{ viewerSettingsForm.status | json }}</p> -->
 </mat-grid-list>
+<div class="button-wrap">
+    <a class="test" mat-raised-button matTooltip="Add workflow to execution set" matTooltipPosition="left" (click)="addToExeSet()">
+        Add to execution set
+    </a>
+</div>

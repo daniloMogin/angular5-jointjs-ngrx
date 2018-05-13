@@ -519,8 +519,8 @@ module.exports = {
 
         proxy: [
             {
-                context: ['/api/1.0/configuration/'],
-                target: 'https://10.0.4.247:8771',
+                context: ['/api/1.0/'],
+                target: 'https://10.0.4.93:8771',
                 secure: false
                 // changeOrigin: true
                 // onProxyReq: relayRequestHeaders

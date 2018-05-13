@@ -1,57 +1,69 @@
 <h2 mat-dialog-title>Workflow Settings</h2>
-{{data.name}}
+<!-- {{data.name}} -->
 <mat-dialog-content>
-    <mat-form-field>
-        <input matInput placeholder="Name" [(ngModel)]="name">
-    </mat-form-field>
+    <form [formGroup]="designerSettingsForm">
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+
+        <mat-card class="var-card">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>Workflow</mat-card-title>
+                <mat-card-subtitle>Variables</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div formArrayName="variablesArr">
+                    <mat-form-field *ngFor="let vari of variables; let i=index" [formGroupName]="i">
+                        <!-- {{vari}} -->
+                        <input matInput placeholder="Name of variable" formControlName="item">
+                    </mat-form-field>
+                </div>
 
 
-    <mat-card class="var-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Workflow</mat-card-title>
-            <mat-card-subtitle>Variables</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button matTooltip="Add variable" matTooltipPosition="left" (click)="addVar();">Add</button>
+                <button mat-raised-button matTooltip="Remove variable" matTooltipPosition="right" (click)="removeVar();">Remove</button>
+            </mat-card-actions>
+        </mat-card>
 
 
-            <mat-form-field *ngFor="let var of variables">
-                <input matInput placeholder="Name of variable" [(ngModel)]="test">
-            </mat-form-field>
+        <mat-card class="par-card">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>Workflow</mat-card-title>
+                <mat-card-subtitle>Parameters</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+
+                <div formArrayName="parametersArr">
+                    <mat-form-field *ngFor="let param of parameters; let i=index" [formGroupName]="i">
+                        <input matInput placeholder="Name of parameter" formControlName="item">
+                    </mat-form-field>
+                </div>
 
 
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button matTooltip="Add variable" matTooltipPosition="left" (click)="addVar();">Add</button>
-        </mat-card-actions>
-    </mat-card>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button matTooltip="Add parameter" matTooltipPosition="left" (click)="addParam();">Add</button>
+                <button mat-raised-button matTooltip="Remove parameter" matTooltipPosition="right" (click)="removeParam();">Remove</button>
+            </mat-card-actions>
+        </mat-card>
 
-
-    <mat-card class="par-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Workflow</mat-card-title>
-            <mat-card-subtitle>Parameters</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <mat-form-field *ngFor="let param of parameters">
-                <input matInput placeholder="Name of parameter">
-            </mat-form-field>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button matTooltip="Add parameter" matTooltipPosition="left" (click)="addParam();">Add</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-form-field>
-        <mat-select placeholder="Next state on fail" [(ngModel)]="fail">
-            <mat-option *ngFor="let fs of failScenarion" [value]="fs.value">
-                {{ fs.viewValue }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field class="fail-scenarion">
+            <mat-select placeholder="Next state on fail" formControlName="fail">
+                <mat-option *ngFor="let fs of failScenarion" [value]="fs.value">
+                    {{ fs.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <p>Form name: {{ designerSettingsForm.value | json }}</p>
+    <p>Form status: {{ designerSettingsForm.status | json }}</p>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-raised-button [mat-dialog-close]="designerSettings(name, fail, test)">Ok</button>
+    <button mat-raised-button [mat-dialog-close]="designerSettingsForm.value">Ok</button>
     <!-- cdkFocusInitial - da fokusira dugme cim se otvori-->
-    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <!-- <button mat-raised-button mat-dialog-close>Cancel</button> -->
 </mat-dialog-actions>

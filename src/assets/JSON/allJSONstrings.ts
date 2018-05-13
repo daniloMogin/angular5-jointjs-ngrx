@@ -12091,3 +12091,2231 @@ export const jsonString9: any = {
     Workflow: [],
     States: []
 };
+
+export const jsonString10: any = {
+    cells: [
+        {
+            type: 'fsa.StartState',
+            size: { width: 60, height: 60 },
+            position: { x: 320, y: 60 },
+            angle: 0,
+            preserveAspectRatio: true,
+            id: '0ee27b4a-4192-476f-81df-9844e92a02a5',
+            z: 1,
+            attrs: {
+                circle: {
+                    fill: '#ffd600',
+                    width: 50,
+                    height: 30,
+                    'stroke-width': 0
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                },
+                text: {
+                    text: 'Init',
+                    fill: '#222138',
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'font-size': 17,
+                    'stroke-width': 0
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 305, y: 400 },
+            angle: 0,
+            id: 'd016ea22-0e21-4fb5-81e7-6094e02a73da',
+            params: [],
+            z: 2,
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '1',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 305, y: 181 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '7928a162-1c05-4755-a1b9-d5a242bd4caf',
+            z: 3,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Verifywait',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 305, y: 300 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '82b4f33f-f2c5-4182-bde5-c63b9e8960d5',
+            z: 4,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Verify',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 305, y: 512 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '4ccbb7f5-7438-4a5e-b042-77869b2c6010',
+            z: 5,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Verified',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 305, y: 625 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'de007102-fca3-4195-9f4d-e2ae7eaa0ce5',
+            z: 6,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Play',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 305, y: 733 },
+            angle: 0,
+            id: 'c42c65fa-7ca9-469c-87bb-5cd278e14609',
+            params: [],
+            z: 7,
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '2',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 305, y: 843 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '05ff03ea-0cda-4c23-a7ed-40d8a112055f',
+            z: 8,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Playing',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 305, y: 945 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '8e458a76-7e62-49f7-b112-60186fc9dd38',
+            z: 9,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Stop',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 305, y: 1062 },
+            angle: 0,
+            id: '0ff13348-2563-4a19-a20d-41b1bc243af7',
+            params: [],
+            z: 10,
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '4',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'fsa.EndState',
+            size: { width: 60, height: 60 },
+            position: { x: 320, y: 1182 },
+            angle: 0,
+            preserveAspectRatio: true,
+            id: 'a4d18f11-632b-414b-89e6-f6339ac509f6',
+            z: 11,
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                '.inner': { fill: '#ffff52', stroke: 'transparent' },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                },
+                text: {
+                    text: 'End',
+                    fill: '#222138',
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'font-size': 17,
+                    'stroke-width': 0
+                }
+            }
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '0ee27b4a-4192-476f-81df-9844e92a02a5' },
+            target: { id: '7928a162-1c05-4755-a1b9-d5a242bd4caf' },
+            id: '92d872fc-4848-49ef-b161-b2d5a61e636a',
+            z: 12,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'd016ea22-0e21-4fb5-81e7-6094e02a73da' },
+            target: { id: '4ccbb7f5-7438-4a5e-b042-77869b2c6010' },
+            id: '508bca60-b602-4c5e-99ff-de7c0e1fdecf',
+            z: 13,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '82b4f33f-f2c5-4182-bde5-c63b9e8960d5' },
+            target: { id: 'd016ea22-0e21-4fb5-81e7-6094e02a73da' },
+            id: '047ea04e-268c-4625-8465-0b12b65b5381',
+            z: 14,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '7928a162-1c05-4755-a1b9-d5a242bd4caf' },
+            target: { id: '82b4f33f-f2c5-4182-bde5-c63b9e8960d5' },
+            id: '397dbc0c-bc31-42e1-a98a-3a219945980d',
+            z: 15,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '4ccbb7f5-7438-4a5e-b042-77869b2c6010' },
+            target: { id: 'de007102-fca3-4195-9f4d-e2ae7eaa0ce5' },
+            id: '0aeecb61-5f8c-4ab9-a55f-c208fe862f52',
+            z: 16,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'de007102-fca3-4195-9f4d-e2ae7eaa0ce5' },
+            target: { id: 'c42c65fa-7ca9-469c-87bb-5cd278e14609' },
+            id: '2b15b679-3f4f-41f2-b69b-1b0a7eaa3061',
+            z: 17,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'c42c65fa-7ca9-469c-87bb-5cd278e14609' },
+            target: { id: '05ff03ea-0cda-4c23-a7ed-40d8a112055f' },
+            id: '2e3ef0de-92d2-43d8-b88c-aac4b2bf46df',
+            z: 18,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '05ff03ea-0cda-4c23-a7ed-40d8a112055f' },
+            target: { id: '8e458a76-7e62-49f7-b112-60186fc9dd38' },
+            id: 'd777ab22-d3db-4412-bf4b-253622edaa46',
+            z: 19,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '8e458a76-7e62-49f7-b112-60186fc9dd38' },
+            target: { id: '0ff13348-2563-4a19-a20d-41b1bc243af7' },
+            id: '399cc74f-b1ef-4737-af4e-3d014b1f725d',
+            z: 20,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '0ff13348-2563-4a19-a20d-41b1bc243af7' },
+            target: { id: 'a4d18f11-632b-414b-89e6-f6339ac509f6' },
+            id: '4eb5b07d-7aad-4932-8863-4bfc723f3624',
+            z: 21,
+            attrs: {}
+        }
+    ],
+    Name: 'Neko ime',
+    States: [
+        {
+            Name: 'Init',
+            Transitions: [
+                [
+                    {
+                        Name: 'Init_Verifywait_undefined',
+                        NextStateOnSuccess: 'Verifywait',
+                        NextStateOnFailure: 'source',
+                        Condition: null,
+                        Trigger: { Message: null, Timeout: 0 },
+                        Operations: [],
+                        TransitionScenario: 'StepByStep'
+                    }
+                ]
+            ]
+        },
+        {
+            Name: 'Verifywait',
+            Transitions: [
+                [
+                    {
+                        Name: 'Verifywait_Verified_Verify',
+                        NextStateOnSuccess: 'Verified',
+                        NextStateOnFailure: 'source',
+                        Condition: null,
+                        Trigger: { Message: 'Verify', Timeout: 0 },
+                        Operations: ['1'],
+                        TransitionScenario: 'StepByStep'
+                    }
+                ]
+            ]
+        },
+        {
+            Name: 'Verified',
+            Transitions: [
+                [
+                    {
+                        Name: 'Verified_Playing_Play',
+                        NextStateOnSuccess: 'Playing',
+                        NextStateOnFailure: 'source',
+                        Condition: null,
+                        Trigger: { Message: 'Play', Timeout: 0 },
+                        Operations: ['2'],
+                        TransitionScenario: 'StepByStep'
+                    }
+                ]
+            ]
+        },
+        {
+            Name: 'Playing',
+            Transitions: [
+                [
+                    {
+                        Name: 'Playing_End_Stop',
+                        NextStateOnSuccess: 'End',
+                        NextStateOnFailure: 'source',
+                        Condition: null,
+                        Trigger: { Message: 'Stop', Timeout: 0 },
+                        Operations: ['4'],
+                        TransitionScenario: 'StepByStep'
+                    }
+                ]
+            ]
+        }
+    ]
+};
+
+export const jsonString11: any = {
+    cells: [
+        {
+            type: 'fsa.StartState',
+            size: { width: 60, height: 60 },
+            position: { x: 460, y: 120 },
+            angle: 0,
+            preserveAspectRatio: true,
+            id: 'e9bb172c-38bf-47e5-80c4-5e31766b7959',
+            z: 1,
+            attrs: {
+                circle: {
+                    fill: '#ffd600',
+                    width: 50,
+                    height: 30,
+                    'stroke-width': 0
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                },
+                text: {
+                    text: 'Init',
+                    fill: '#222138',
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'font-size': 17,
+                    'stroke-width': 0
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 445, y: 233 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'f9780bba-ceb0-4075-893b-92da2f7e3110',
+            z: 2,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Verifywait',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 350 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '1e17fba1-ceba-456e-99c3-2c389fa9a050',
+            z: 3,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Verify',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 464 },
+            angle: 0,
+            id: 'b5bb858a-7abd-4cf0-86bd-4381851a1f0a',
+            z: 4,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '1',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 445, y: 574 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'd743c4fc-17c9-4aa7-a9d0-86cf83637883',
+            z: 5,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Verified',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 675 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3',
+            z: 6,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Playing',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 780 },
+            angle: 0,
+            id: '18fed189-89d2-499a-88f8-9008c2e869c6',
+            z: 7,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '2',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 445, y: 893 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6',
+            z: 8,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Playing',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 999 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '10438168-0c44-400c-84e6-5329e933eafe',
+            z: 9,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Pause',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 1118 },
+            angle: 0,
+            id: '25d4fdca-9382-416e-a71b-53110f5d10ea',
+            z: 10,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '3',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 445, y: 1235 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '5f7de07c-db87-4818-8a61-cf2305b4fb94',
+            z: 11,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Paused',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 1346 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '74fc34c4-721d-4e15-bb89-4c73de3467ab',
+            z: 12,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Play',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 445, y: 1455 },
+            angle: 0,
+            id: 'dfc0ffed-2fc4-4bba-add1-ef28b3ca6df7',
+            z: 13,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '2',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 686, y: 893 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '3c17ffaf-4949-4c73-9f1a-e3a8d33af5ea',
+            z: 14,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Stop',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 686, y: 999 },
+            angle: 0,
+            id: '22db47c2-a902-420a-a1f3-8b1aa6e848d5',
+            z: 15,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '4',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 686, y: 1118 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '5dce2312-7eda-4671-b397-7ca5b232dc83',
+            z: 16,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Stopped',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 686, y: 1235 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '669248e9-ec7a-423f-9294-132e1db911ad',
+            z: 17,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Play',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 686, y: 1346 },
+            angle: 0,
+            id: 'fb50e497-b4d9-423d-bcad-4bdc5aeabb87',
+            z: 18,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '2',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'e9bb172c-38bf-47e5-80c4-5e31766b7959' },
+            target: { id: 'f9780bba-ceb0-4075-893b-92da2f7e3110' },
+            id: 'c90278ed-f3da-40ce-831d-19da6fc5d7ee',
+            z: 19,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'f9780bba-ceb0-4075-893b-92da2f7e3110' },
+            target: { id: '1e17fba1-ceba-456e-99c3-2c389fa9a050' },
+            id: 'bcd1a365-5a31-4e19-8ab2-bf47af259a85',
+            z: 20,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '1e17fba1-ceba-456e-99c3-2c389fa9a050' },
+            target: { id: 'b5bb858a-7abd-4cf0-86bd-4381851a1f0a' },
+            id: 'fe47b3a1-255f-40fc-87ee-2f8405cba30d',
+            z: 21,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'b5bb858a-7abd-4cf0-86bd-4381851a1f0a' },
+            target: { id: 'd743c4fc-17c9-4aa7-a9d0-86cf83637883' },
+            id: 'deb609b0-7ca2-49b2-96b9-a05c1df97b5b',
+            z: 22,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'd743c4fc-17c9-4aa7-a9d0-86cf83637883' },
+            target: { id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3' },
+            id: '4e4d17a5-d98e-4c0a-b185-16ef90be3169',
+            z: 23,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3' },
+            target: { id: '18fed189-89d2-499a-88f8-9008c2e869c6' },
+            id: '9bdcb36a-ca77-4d5b-95e2-8e3bd6be9119',
+            z: 24,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '18fed189-89d2-499a-88f8-9008c2e869c6' },
+            target: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            id: '175495fd-e8c0-43fd-93df-f14d8fbb95a7',
+            z: 25,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            target: { id: '10438168-0c44-400c-84e6-5329e933eafe' },
+            id: 'dbad015f-7eab-426e-a47c-b4565eb2063d',
+            z: 26,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '10438168-0c44-400c-84e6-5329e933eafe' },
+            target: { id: '25d4fdca-9382-416e-a71b-53110f5d10ea' },
+            id: '70a261dd-e726-434b-a280-2cdfab3541fb',
+            z: 27,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '25d4fdca-9382-416e-a71b-53110f5d10ea' },
+            target: { id: '5f7de07c-db87-4818-8a61-cf2305b4fb94' },
+            id: '68f37211-2863-47ef-a6c7-1bb217b3d78b',
+            z: 28,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '5f7de07c-db87-4818-8a61-cf2305b4fb94' },
+            target: { id: '74fc34c4-721d-4e15-bb89-4c73de3467ab' },
+            id: 'd815e6fd-c5a0-46b4-b98a-69a2adfc54d6',
+            z: 29,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '74fc34c4-721d-4e15-bb89-4c73de3467ab' },
+            target: { id: 'dfc0ffed-2fc4-4bba-add1-ef28b3ca6df7' },
+            id: 'ef4ac3c6-5fbc-45b4-8d13-552f9290a700',
+            z: 30,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            target: { id: '3c17ffaf-4949-4c73-9f1a-e3a8d33af5ea' },
+            id: '83c9f955-0fb4-4fdd-b9cc-eef2be4a5049',
+            z: 31,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '3c17ffaf-4949-4c73-9f1a-e3a8d33af5ea' },
+            target: { id: '22db47c2-a902-420a-a1f3-8b1aa6e848d5' },
+            id: '71654be4-8a19-4c48-adaf-a8d04a7fe972',
+            z: 32,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '22db47c2-a902-420a-a1f3-8b1aa6e848d5' },
+            target: { id: '5dce2312-7eda-4671-b397-7ca5b232dc83' },
+            id: '647d05aa-cef8-4d55-b759-ef62cd52535e',
+            z: 33,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '5dce2312-7eda-4671-b397-7ca5b232dc83' },
+            target: { id: '669248e9-ec7a-423f-9294-132e1db911ad' },
+            id: 'a9de985a-1ddf-48df-8fc8-1ca3436c805e',
+            z: 34,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '669248e9-ec7a-423f-9294-132e1db911ad' },
+            target: { id: 'fb50e497-b4d9-423d-bcad-4bdc5aeabb87' },
+            id: 'ecdf52aa-5d3b-4cc8-b8a4-d5557512c11d',
+            z: 35,
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'dfc0ffed-2fc4-4bba-add1-ef28b3ca6df7' },
+            target: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            id: 'c5bb6263-04bf-4a52-84f0-5f9a926a4960',
+            z: 36,
+            vertices: [{ x: 360, y: 1490 }, { x: 360, y: 920 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'fb50e497-b4d9-423d-bcad-4bdc5aeabb87' },
+            target: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            id: 'ca527edb-6534-4c4a-8a72-b1ef2b01a6ac',
+            z: 37,
+            vertices: [{ x: 620, y: 1380 }, { x: 620, y: 990 }],
+            attrs: {}
+        }
+    ],
+    Name: 'DemoPlayer',
+    Parameters : [],
+    Variables : [],
+    States: [
+        {
+            Name: 'Init',
+            Transitions: [
+                {
+                    Name: 'Init_Verifywait_undefined',
+                    NextStateOnSuccess: 'VerifyWait',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: '', Timeout: 0 },
+                    Operations: [],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'VerifyWait',
+            Transitions: [
+                {
+                    Name: 'Verifywait_Verified_Verify',
+                    NextStateOnSuccess: 'Verified',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: 'VerifyMessage', Timeout: 0 },
+                    Operations: [
+                        {
+                            Name: 'VerifyActor',
+                            Arguments: [
+                                {
+                                    Parameter: 'Path',
+                                    Argument: 'D:\\videos\\video1.avi',
+                                    Modifier: 'in'
+                                }
+                            ]
+                        }
+                    ],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Verified',
+            Transitions: [
+                {
+                    Name: 'Verified_Playing_Playing',
+                    NextStateOnSuccess: 'Playing',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: 'PlayingMessage', Timeout: 0 },
+                    Operations: [
+                        {
+                            Name: 'PlayerActor',
+                            Arguments: [
+                                {
+                                    Parameter: 'Path',
+                                    Argument: 'D:\\videos\\video1.avi',
+                                    Modifier: 'in'
+                                }
+                            ]
+                        }
+                    ],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Playing',
+            Transitions: [
+                {
+                    Name: 'Playing_Stopped_Stop',
+                    NextStateOnSuccess: 'Stopped',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: 'StopMessage', Timeout: 0 },
+                    Operations: [
+                        {
+                            Name: 'StopActor',
+                            Arguments: []
+                        }
+                    ],
+                    TransitionScenario: 'StepByStep'
+                },
+                {
+                    Name: 'Playing_Paused_Pause',
+                    NextStateOnSuccess: 'Paused',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: 'PauseMessage', Timeout: 0 },
+                    Operations: [
+                        {
+                            Name: 'PauseActor',
+                            Arguments: []
+                        }
+                    ],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Paused',
+            Transitions: [
+                {
+                    Name: 'Paused_Playing_Play',
+                    NextStateOnSuccess: 'Playing',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: 'PlayMessage', Timeout: 0 },
+                    Operations: [
+                        {
+                            Name: 'PlayerActor',
+                            Arguments: [
+                                {
+                                    Parameter: 'Path',
+                                    Argument: 'D:\\videos\\video1.avi',
+                                    Modifier: 'in'
+                                }
+                            ]
+                        }
+                    ],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Stopped',
+            Transitions: [
+                {
+                    Name: 'Stopped_Playing_Play',
+                    NextStateOnSuccess: 'Playing',
+                    NextStateOnFailure: 'Init',
+                    Condition: '',
+                    Trigger: { Message: 'PlayMessage', Timeout: 0 },
+                    Operations: [
+                        {
+                            Name: 'PlayerActor',
+                            Arguments: [
+                                {
+                                    Parameter: 'Path',
+                                    Argument: 'D:\\videos\\video1.avi',
+                                    Modifier: 'in'
+                                }
+                            ]
+                        }
+                    ],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        }
+    ]
+};
+
+export const jsonString12: any = {
+    cells: [
+        {
+            type: 'fsa.StartState',
+            size: { width: 60, height: 60 },
+            position: { x: 100, y: 197.5 },
+            angle: 0,
+            preserveAspectRatio: true,
+            id: 'e9bb172c-38bf-47e5-80c4-5e31766b7959',
+            z: 1,
+            attrs: {
+                circle: {
+                    fill: '#ffd600',
+                    width: 50,
+                    height: 30,
+                    'stroke-width': 0
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                },
+                text: {
+                    text: 'Init',
+                    fill: '#222138',
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'font-size': 17,
+                    'stroke-width': 0
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 210, y: 197.5 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'f9780bba-ceb0-4075-893b-92da2f7e3110',
+            z: 2,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Verifywait',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 350, y: 197.5 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '1e17fba1-ceba-456e-99c3-2c389fa9a050',
+            z: 3,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'Verify',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 490, y: 197.5 },
+            angle: 0,
+            id: 'b5bb858a-7abd-4cf0-86bd-4381851a1f0a',
+            z: 4,
+            params: [
+                { attrs: { text: { text: 'Path' } } },
+                { attrs: { text: { text: 'D:\\\\videos\\\\video1.avi' } } },
+                { attrs: { text: { text: 'in' } } }
+            ],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '1',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 630, y: 197.5 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'd743c4fc-17c9-4aa7-a9d0-86cf83637883',
+            z: 5,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Verified',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 770, y: 197.5 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3',
+            z: 6,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'PlayMessage',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 910, y: 197.5 },
+            angle: 0,
+            id: '18fed189-89d2-499a-88f8-9008c2e869c6',
+            z: 7,
+            params: [
+                { attrs: { text: { text: 'Path' } } },
+                { attrs: { text: { text: 'D:\\\\videos\\\\video1.avi' } } },
+                { attrs: { text: { text: 'in' } } }
+            ],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '2',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 1050, y: 197.5 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6',
+            z: 8,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Playing',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 1190, y: 100 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '10438168-0c44-400c-84e6-5329e933eafe',
+            z: 9,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'PauseMessage',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 1330, y: 100 },
+            angle: 0,
+            id: '25d4fdca-9382-416e-a71b-53110f5d10ea',
+            z: 10,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '3',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 1470, y: 100 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '5f7de07c-db87-4818-8a61-cf2305b4fb94',
+            z: 11,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Paused',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 1190, y: 230 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '3c17ffaf-4949-4c73-9f1a-e3a8d33af5ea',
+            z: 14,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'StopMessage',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 1330, y: 230 },
+            angle: 0,
+            id: '22db47c2-a902-420a-a1f3-8b1aa6e848d5',
+            z: 15,
+            params: [],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '4',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'basic.Rect',
+            position: { x: 1470, y: 230 },
+            size: { width: 90, height: 60 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '5dce2312-7eda-4671-b397-7ca5b232dc83',
+            z: 16,
+            attrs: {
+                rect: {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 15,
+                    ry: 15,
+                    'stroke-width': 2,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    fill: '#222138',
+                    text: 'Stopped',
+                    'font-size': 17,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.ISA',
+            size: { width: 90, height: 60 },
+            position: { x: 1610, y: 230 },
+            angle: 0,
+            allowOrthogonalResize: false,
+            id: '669248e9-ec7a-423f-9294-132e1db911ad',
+            z: 17,
+            attrs: {
+                polygon: {
+                    points: '0 0, 100 0, 100 100, 0 100, 13 50',
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: 'PlayMessage',
+                    'font-size': 17,
+                    'ref-y': 28,
+                    fill: '#222138',
+                    'letter-spacing': 0,
+                    'font-family': 'Roboto Condensed',
+                    'font-weight': 'Normal',
+                    nextStateFail: '',
+                    condition: '',
+                    timeout: null
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'erd.Entity',
+            size: { width: 90, height: 60 },
+            position: { x: 1750, y: 257.5 },
+            angle: 0,
+            id: 'fb50e497-b4d9-423d-bcad-4bdc5aeabb87',
+            z: 18,
+            params: [
+                { attrs: { text: { text: 'Path' } } },
+                { attrs: { text: { text: 'D:\\\\videos\\\\video1.avi' } } },
+                { attrs: { text: { text: 'in' } } }
+            ],
+            attrs: {
+                '.outer': {
+                    fill: 'transparent',
+                    stroke: '#ffd600',
+                    rx: 3,
+                    ry: 3,
+                    'stroke-dasharray': '0'
+                },
+                text: {
+                    text: '2',
+                    'font-family': 'Roboto Condensed',
+                    'font-size': 17,
+                    fill: '#222138',
+                    'font-weight': 'Normal',
+                    'stroke-width': 1
+                },
+                '.': {
+                    'data-tooltip-position': 'left',
+                    'data-tooltip-position-selector': '.joint-stencil'
+                }
+            }
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'e9bb172c-38bf-47e5-80c4-5e31766b7959' },
+            target: { id: 'f9780bba-ceb0-4075-893b-92da2f7e3110' },
+            id: 'c90278ed-f3da-40ce-831d-19da6fc5d7ee',
+            z: 19,
+            vertices: [{ x: 185, y: 227.5 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'f9780bba-ceb0-4075-893b-92da2f7e3110' },
+            target: { id: '1e17fba1-ceba-456e-99c3-2c389fa9a050' },
+            id: 'bcd1a365-5a31-4e19-8ab2-bf47af259a85',
+            z: 20,
+            vertices: [{ x: 325, y: 227.5 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '1e17fba1-ceba-456e-99c3-2c389fa9a050' },
+            target: { id: 'b5bb858a-7abd-4cf0-86bd-4381851a1f0a' },
+            id: 'fe47b3a1-255f-40fc-87ee-2f8405cba30d',
+            z: 21,
+            vertices: [{ x: 465, y: 227.5 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'b5bb858a-7abd-4cf0-86bd-4381851a1f0a' },
+            target: { id: 'd743c4fc-17c9-4aa7-a9d0-86cf83637883' },
+            id: 'deb609b0-7ca2-49b2-96b9-a05c1df97b5b',
+            z: 22,
+            vertices: [{ x: 605, y: 227.5 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'd743c4fc-17c9-4aa7-a9d0-86cf83637883' },
+            target: { id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3' },
+            id: '4e4d17a5-d98e-4c0a-b185-16ef90be3169',
+            z: 23,
+            vertices: [{ x: 745, y: 227.5 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3' },
+            target: { id: '18fed189-89d2-499a-88f8-9008c2e869c6' },
+            id: '9bdcb36a-ca77-4d5b-95e2-8e3bd6be9119',
+            z: 24,
+            vertices: [{ x: 885, y: 227.5 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            target: { id: '10438168-0c44-400c-84e6-5329e933eafe' },
+            id: 'dbad015f-7eab-426e-a47c-b4565eb2063d',
+            z: 26,
+            vertices: [{ x: 1165, y: 130 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '10438168-0c44-400c-84e6-5329e933eafe' },
+            target: { id: '25d4fdca-9382-416e-a71b-53110f5d10ea' },
+            id: '70a261dd-e726-434b-a280-2cdfab3541fb',
+            z: 27,
+            vertices: [{ x: 1305, y: 130 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '25d4fdca-9382-416e-a71b-53110f5d10ea' },
+            target: { id: '5f7de07c-db87-4818-8a61-cf2305b4fb94' },
+            id: '68f37211-2863-47ef-a6c7-1bb217b3d78b',
+            z: 28,
+            vertices: [{ x: 1445, y: 130 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '5f7de07c-db87-4818-8a61-cf2305b4fb94' },
+            target: { id: 'c7d9ebce-b4ab-4d43-b562-12bc2a3469c3' },
+            id: 'd815e6fd-c5a0-46b4-b98a-69a2adfc54d6',
+            z: 29,
+            vertices: [
+                { x: 1590, y: 130 },
+                { x: 1590, y: 80 },
+                { x: 820, y: 80 }
+            ],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            target: { id: '3c17ffaf-4949-4c73-9f1a-e3a8d33af5ea' },
+            id: '83c9f955-0fb4-4fdd-b9cc-eef2be4a5049',
+            z: 31,
+            vertices: [{ x: 1165, y: 260 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '3c17ffaf-4949-4c73-9f1a-e3a8d33af5ea' },
+            target: { id: '22db47c2-a902-420a-a1f3-8b1aa6e848d5' },
+            id: '71654be4-8a19-4c48-adaf-a8d04a7fe972',
+            z: 32,
+            vertices: [{ x: 1305, y: 260 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '22db47c2-a902-420a-a1f3-8b1aa6e848d5' },
+            target: { id: '5dce2312-7eda-4671-b397-7ca5b232dc83' },
+            id: '647d05aa-cef8-4d55-b759-ef62cd52535e',
+            z: 33,
+            vertices: [{ x: 1445, y: 260 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '5dce2312-7eda-4671-b397-7ca5b232dc83' },
+            target: { id: '669248e9-ec7a-423f-9294-132e1db911ad' },
+            id: 'a9de985a-1ddf-48df-8fc8-1ca3436c805e',
+            z: 34,
+            vertices: [{ x: 1585, y: 260 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '669248e9-ec7a-423f-9294-132e1db911ad' },
+            target: { id: 'fb50e497-b4d9-423d-bcad-4bdc5aeabb87' },
+            id: 'ecdf52aa-5d3b-4cc8-b8a4-d5557512c11d',
+            z: 35,
+            vertices: [{ x: 1725, y: 260 }],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: 'fb50e497-b4d9-423d-bcad-4bdc5aeabb87' },
+            target: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            id: 'ca527edb-6534-4c4a-8a72-b1ef2b01a6ac',
+            z: 37,
+            vertices: [
+                { x: 1725, y: 325 },
+                { x: 1655, y: 325 },
+                { x: 1585, y: 325 },
+                { x: 1515, y: 325 },
+                { x: 1445, y: 325 },
+                { x: 1375, y: 325 },
+                { x: 1305, y: 325 },
+                { x: 1235, y: 325 },
+                { x: 1165, y: 325 }
+            ],
+            attrs: {}
+        },
+        {
+            type: 'app.Link',
+            router: { name: 'normal' },
+            connector: { name: 'normal' },
+            source: { id: '18fed189-89d2-499a-88f8-9008c2e869c6' },
+            target: { id: '532e7d60-790e-462d-bdad-e9d9e82ae3a6' },
+            id: 'bd7299ed-f2b3-4c32-97e0-576219c36fc8',
+            z: 38,
+            vertices: [{ x: 1030, y: 230 }],
+            attrs: {}
+        }
+    ],
+    Name: 'Demo Player',
+    States: [
+        {
+            Name: 'Init',
+            Transitions: [
+                {
+                    Name: 'Init_Verifywait_undefined',
+                    NextStateOnSuccess: 'Verifywait',
+                    NextStateOnFailure: 'target',
+                    Condition: '',
+                    Trigger: { Message: '', Timeout: 0 },
+                    Operations: [{ name: [] }],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Verifywait',
+            Transitions: [
+                {
+                    Name: 'Verifywait_Verified_Verify',
+                    NextStateOnSuccess: 'Verified',
+                    NextStateOnFailure: 'target',
+                    Condition: '',
+                    Trigger: { Message: 'Verify', Timeout: 0 },
+                    Operations: [{ name: ['1'] }],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Verified',
+            Transitions: [
+                {
+                    Name: 'Verified_Playing_PlayMessage',
+                    NextStateOnSuccess: 'Playing',
+                    NextStateOnFailure: 'target',
+                    Condition: '',
+                    Trigger: { Message: 'PlayMessage', Timeout: 0 },
+                    Operations: [{ name: ['2'] }],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Playing',
+            Transitions: [
+                {
+                    Name: 'Playing_Stopped_StopMessage',
+                    NextStateOnSuccess: 'Stopped',
+                    NextStateOnFailure: 'target',
+                    Condition: '',
+                    Trigger: { Message: 'StopMessage', Timeout: 0 },
+                    Operations: [{ name: ['4'] }],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Paused',
+            Transitions: [
+                {
+                    Name: 'Paused_Playing_PlayMessage',
+                    NextStateOnSuccess: 'Playing',
+                    NextStateOnFailure: 'target',
+                    Condition: '',
+                    Trigger: { Message: 'PlayMessage', Timeout: 0 },
+                    Operations: [{ name: ['2'] }],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        },
+        {
+            Name: 'Stopped',
+            Transitions: [
+                {
+                    Name: 'Stopped_Playing_PlayMessage',
+                    NextStateOnSuccess: 'Playing',
+                    NextStateOnFailure: 'target',
+                    Condition: '',
+                    Trigger: { Message: 'PlayMessage', Timeout: 0 },
+                    Operations: [{ name: ['2'] }],
+                    TransitionScenario: 'StepByStep'
+                }
+            ]
+        }
+    ]
+};
