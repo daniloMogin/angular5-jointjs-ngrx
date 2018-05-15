@@ -66,8 +66,7 @@ export class ViewerSettingsComponent implements OnInit {
 
     viewerWorkflowTypeForm: FormGroup;
 
-    nestoDobro;
-    nestoDobroArg;
+    paramsArr;
 
     constructor(private fb: FormBuilder, private http: HttpClient) {
         this.createForm();
@@ -132,22 +131,16 @@ export class ViewerSettingsComponent implements OnInit {
             }
         }
         for (const i of temp) {
-            // console.log(i);
-            // console.log(i.Arguments);
             if (i.Arguments.Parameter !== '') {
                 temp1.push({
                     Name: i.Name,
                     Arguments: i.Arguments
                 });
-                temp2.push(i.Arguments);
             }
         }
-        this.nestoDobro = temp1;
-        this.nestoDobroArg = temp2;
-        // console.log(`this.nestoDobro`);
-        // console.log(this.nestoDobro);
-        // console.log(`this.nestoDobroArg`);
-        // console.log(this.nestoDobroArg);
+        this.paramsArr = temp1;
+        // console.log(`this.paramsArr`);
+        // console.log(this.paramsArr);
         for (const i of temp1) {
             (<FormArray>this.viewerWorkflowTypeForm.get('params')).push(
                 this.createItem()
@@ -156,40 +149,7 @@ export class ViewerSettingsComponent implements OnInit {
     }
 
     addToExeSet() {
-        const node = {
-            id: this.nodes.length,
-            name: this.viewerSettingsForm.value.name,
-            children: [
-                {
-                    id: Math.random(),
-                    name: `Workflow type: ${this.myControl.value}`
-                },
-                {
-                    id: Math.random(),
-                    name: `Min runners: ${
-                        this.viewerSettingsForm.value.minNumRunn
-                    }`
-                },
-                {
-                    id: Math.random(),
-                    name: `Maxrunners: ${
-                        this.viewerSettingsForm.value.maxNumRunn
-                    }`
-                },
-                {
-                    id: Math.random(),
-                    name: `Time to live: ${this.viewerSettingsForm.value.ttl}`
-                },
-                {
-                    id: Math.random(),
-                    name: `Creation mechanism: ${
-                        this.viewerSettingsForm.value.creationMech
-                    }`
-                }
-            ]
-        };
         // TODO ako nije validna forma disable dugme
-
         const actorsOperationsArr: IActor[] = getArgument(
             jsonM.jsonString11.States
         ); // PROMENI OVO NA PRAVE PODATKE
@@ -225,6 +185,58 @@ export class ViewerSettingsComponent implements OnInit {
         console.log(`wftParamsStatus -> ${wftParamsStatus}`);
 
         if (basicStatus === 'VALID' && wftParamsStatus === 'VALID') {
+            const temp: any = [];
+            const temp1: any = [];
+            for (const i of this.viewerWorkflowTypeForm.value.params) {
+                temp.push({
+                    argument: i.argument
+                });
+                temp1.push({
+                    modifier: i.modifier
+                });
+            }
+            const node = {
+                id: this.nodes.length,
+                name: this.viewerSettingsForm.value.name,
+                children: [
+                    {
+                        id: Math.random(),
+                        name: `Workflow type: ${this.myControl.value}`
+                    },
+                    {
+                        id: Math.random(),
+                        name: `Min runners: ${
+                            this.viewerSettingsForm.value.minNumRunn
+                        }`
+                    },
+                    {
+                        id: Math.random(),
+                        name: `Maxrunners: ${
+                            this.viewerSettingsForm.value.maxNumRunn
+                        }`
+                    },
+                    {
+                        id: Math.random(),
+                        name: `Time to live: ${
+                            this.viewerSettingsForm.value.ttl
+                        }`
+                    },
+                    {
+                        id: Math.random(),
+                        name: `Creation mechanism: ${
+                            this.viewerSettingsForm.value.creationMech
+                        }`
+                    },
+                    {
+                        id: Math.random(),
+                        name: `Parameter: ${temp}`
+                    },
+                    {
+                        id: Math.random(),
+                        name: `Modifier: ${temp1}`
+                    }
+                ]
+            };
             this.nodes.push(node);
             this.tree.treeModel.update();
             // const httpOptions = {

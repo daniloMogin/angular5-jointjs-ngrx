@@ -2,7 +2,7 @@
     <mat-grid-tile>
         <div class="settings-container">
             <mat-form-field>
-                <input matInput placeholder="Name" formControlName="name" required>
+                <input matInput autofocus placeholder="Name" formControlName="name" required>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
@@ -16,10 +16,10 @@
                 </mat-autocomplete>
             </mat-form-field>
 
-            <div *ngIf="nestoDobro" [formGroup]="viewerWorkflowTypeForm">
+            <div *ngIf="paramsArr" [formGroup]="viewerWorkflowTypeForm">
                 <br>
                 <div class="workflowType-wrap" formArrayName="params">
-                    <ul class="wft-box" *ngFor="let nd of nestoDobro; let i=index" [formGroupName]="i">
+                    <ul class="wft-box" *ngFor="let nd of paramsArr; let i=index" [formGroupName]="i">
                         <li>{{nd.Name}} {{i + 1}}</li>
 
                         <li>Parameter: {{nd.Arguments.Parameter}}</li>
